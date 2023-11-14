@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= question.title %></title>
+</head>
+<body>
+    <h1><%= question.title %></h1>
+    <h3>Question:</h3>
+    <h3><%= question.questionText %></h3>
+    
+    <p>Answer:</p>
+    <p><%= question.answer %></p>
+    
+    <% if (question.image) { %>
+        <img src="<%= question.image %>" alt="Question Image">
+    <% } %>
+    
+    <p>Subject: <%= question.subject %></p>
+    <p>Topic: <%= question.topic %></p>
+
+    <!-- Navigation -->
+    <a href="/question/<%= previousQuestionId %>">Previous</a>
+    <a href="/question/<%= nextQuestionId %>">Next</a>
+</body>
+</html>

@@ -13,7 +13,7 @@ app.set('views','./views');
 // app.use(express.urlencoded({ extended: true }));
 
 app.use(bodyParser.urlencoded({ extended: true }));
-const uri=`mongodb+srv://trulyias:trulyias23@cluster0.riz6jje.mongodb.net/ias?retryWrites=true&w=majority`
+const uri=`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.riz6jje.mongodb.net/ias?retryWrites=true&w=majority`
 
 // Connect to MongoDB
 mongoose.connect(uri);
@@ -46,7 +46,7 @@ app.get('/',async (req,res)=>{
 
 //route for individual quesstion
 app.get('/question/:id',async (req,res)=>{
-    const  id  = req.params.id;
+    const  id  = new mongoose.Types.ObjectId(req.params.id);
     try {
         const question = await Question.findById(id);
         const allQuestions = await Question.find().sort({ submitTime: -1 });

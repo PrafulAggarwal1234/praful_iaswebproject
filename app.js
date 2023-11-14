@@ -46,8 +46,8 @@ app.get('/',async (req,res)=>{
 
 //route for individual quesstion
 app.get('/question/:id',async (req,res)=>{
-    const  id  = new mongoose.Types.ObjectId(req.params.id);
     try {
+        const  id  = new mongoose.Types.ObjectId(req.params.id);
         const question = await Question.findById(id);
         const allQuestions = await Question.find().sort({ submitTime: -1 });
         const currentIndex = allQuestions.findIndex(q => q.id === id);

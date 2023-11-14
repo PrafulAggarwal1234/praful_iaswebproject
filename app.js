@@ -13,7 +13,7 @@ app.set('views','./views');
 // app.use(express.urlencoded({ extended: true }));
 
 app.use(bodyParser.urlencoded({ extended: true }));
-const uri=`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.riz6jje.mongodb.net/ias?retryWrites=true&w=majority`
+const uri=`mongodb+srv://trulyias:trulyias23@cluster0.riz6jje.mongodb.net/ias?retryWrites=true&w=majority`
 
 // Connect to MongoDB
 mongoose.connect(uri);
